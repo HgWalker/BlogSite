@@ -1,0 +1,199 @@
+<!--Note: the base username is "user1" and password is"pass1"-->
+<html>
+    <head>
+        <title>Universal Blog - Profile</title>
+        <!--uses "profile.css" & "global.css" to stylize the page-->
+        <link href="profile.css" rel="stylesheet" type="text/css">
+        <link href="global.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="userImage"><img src="images/Blog_Homepage_Banner.png" width="1200" height="300" alt=""></div> <!--Banner image I made in photoshop-->
+        <div id="container">
+            <!--Button that allows the user to sign into a account and acces the pages content-->
+            <div id="sign-in-button" style="visibility: visible;">
+                <button onclick="logIn()">Sign in</button>
+            </div>
+
+            <!--Area to display the username after they login-->
+            <div id="show-name" style="visibility: hidden;">
+
+            </div>
+
+            <!--Displays a the name of the page to identify it for the user-->
+            <h1>Profile</h1>
+
+            <!--table to allow the users to switch between pages-->
+            <table id="menu">
+                <tbody>
+                    <tr>
+                        <td><a href="index.html">Homepage</a></td>
+                        <td><a href="posts.html">Posts</a></td>
+                        <td><a href="profile.html">Profile</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Tells the user they are not logged into the blog-->
+            <div id="profile-page-alert" style="visibility: hidden;">
+                You are not signed in.
+            </div>
+
+            <!--Allows the user to login into an account-->
+            <div id="logIn-window" style="visibility: hidden;">
+                <div class="header">Log In Window</div>
+                <div class="text">Please enter your username and password</div>
+                <!--Lets users input their user name and password-->
+                <div class="input-container">
+                    username:
+                    <input id="username-input" maxlength="20">
+                    <br>
+                    password:
+                    <input id="password-input" maxlength="20">
+                </div>
+                <!--
+                <div class="wrong-username-or-pass" style="visibility: hidden;">The username or password you entered was incorrect</div>
+                -->
+                <div class="button-box">
+                    <button onclick="confirm()">log In</button>
+                    <button onclick="cancel()">Cancel</button>
+                </div>
+                <a href="create_account.html">Sign up</a> <!--Takes user to a page where they can make an account-->
+            </div>
+
+            <div id="profile-user-page" style="visibility: visible;">
+
+                <h2>Check out your profile</h2>
+
+                <!--Table to allow the user to set the profile information-->
+                <td class="the-profile">
+                    <div class="users-profile">
+                        <table>
+                            <!--Allows the user to set their name-->
+                            <tr>
+                                Name: <span id="users-name"></span>
+                                <br>
+                                <button onclick="editName()">edit name</button>
+                                <div id="name-modify-box" style="visibility: hidden;">
+                                    <div class="edit-name">
+                                        <input id="input-name">
+                                        <button onclick="setName()">set name</button>
+                                    </div>
+                                </div>             
+                            </tr>
+                            <!--Allows the user to set their biography-->
+                            <tr>
+                                Bio: <span id="users-bio"></span>
+                                <br>
+                                <button onclick="editBio()">edit bio</button>
+                                <div id="bio-modify-box" style="visibility: hidden;">
+                                    <div class="edit-bio">
+                                        <input id="input-bio">
+                                        <button onclick="setBio()">set bio</button>
+                                    </div>
+                                </div>
+                                    
+                            </tr>
+                            <!--Allows the user to set their age-->
+                            <tr>                
+                                Age: <span id="users-age"></span>
+                                <br>
+                                <button onclick="editAge()">edit age</button>
+                                <div id="age-modify-box" style="visibility: hidden;">
+                                    <div class="edit-age">
+                                        <input id="input-age">
+                                        <button onclick="setAge()">set age</button>
+                                    </div>
+                                </div>
+                            </tr>
+                            <!--Allows the user to set their gender-->
+                            <tr>
+                                Gender: <span id="users-gender"></span>
+                                <br>
+                                <button onclick="editGender()">edit gender</button>
+                                <div id="gender-modify-box" style="visibility: hidden;">
+                                    <div class="edit-gender">
+                                        <input id="input-gender">
+                                        <button onclick="setGender()">set gender</button>
+                                    </div>
+                                </div>
+                            </tr>
+                            <!--Allows the user to set their family information-->
+                            <tr>
+                                Family: <span id="users-family"></span>
+                                <br>
+                                <button onclick="editFamily()">edit family</button>
+                                <div id="family-modify-box" style="visibility: hidden;">
+                                    <div class="edit-family">
+                                        <input id="input-family">
+                                        <button onclick="setFamily()">set family member</button>
+                                    </div>
+                                </div>
+                            </tr>
+                            <!--Allows the user to set their relationship status-->
+                            <tr>
+                                Relationship Status: <span id="users-relationship"></span>
+                                <br>
+                                <button onclick="editRelationshipStatus()">edit relationship</button>
+                                <div id="relationship-modify-box" style="visibility: hidden;">
+                                    <div class="edit-relationship">
+                                        <input id="input-relationship">
+                                        <button onclick="setRelationshipStatus()">set relationship</button>
+                                    </div>
+                                </div>
+                            </tr>
+                            <!--Allows the user to set their likes-->
+                            <tr>
+                                Likes: <span id="users-likes"></span>
+                                <br>
+                                <button onclick="editLikes()">edit likes</button>
+                                <div id="likes-modify-box" style="visibility: hidden;">
+                                    <div class="edit-likes">
+                                        <input id="input-likes">
+                                        <button onclick="setLikes()">set likes</button>
+                                    </div>
+                                </div>
+                            </tr>
+                            <!--Allows the user to set their job information-->
+                            <tr>
+                                Job: <span id="users-work"></span>
+                                <br>
+                                <button onclick="editWork()">edit work</button>
+                                <div id="work-modify-box" style="visibility: hidden;">
+                                    <div class="edit-work">
+                                        <input id="input-work">
+                                        <button onclick="setWork()">set career</button>
+                                    </div>
+                                </div>
+                            </tr>
+                            <!--Allows the user to set their education history-->
+                            <tr> 
+                                Education: <span id="users-education"></span>
+                                <br>
+                                <button onclick="editEducation()">edit education</button>
+                                <div id="education-modify-box" style="visibility: hidden;">
+                                    <div class="edit-education">
+                                        <input id="input-education">
+                                        <button onclick="setEducation()">set education history</button>
+                                    </div>
+                                </div>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+
+                <!--Button that saves the users profile data-->
+                <div>
+                    <button id="btn-save-profile" onclick="saveProfileData()">save changes</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Allows for the use of Jquery-->
+        <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+        <!--Connects to the javaScript "profile_script.js" & "global.js"-->
+        <script src="profile_script.js"></script>
+        <script src="global.js"></script>
+    </body>
+</html>
